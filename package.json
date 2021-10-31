@@ -1,0 +1,7 @@
+{
+  "name": "hugo-plus-staticman",
+  "version": "1.0.0",
+  "dependencies": {
+    "@staticman/netlify-functions": "^1.7.1"
+  }
+}
