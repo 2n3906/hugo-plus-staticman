@@ -17,10 +17,10 @@ exports.handler = (event, context, callback) => {
     origin: event.headers.origin,
     sites: {
       [repo]: {
-        allowedFields: ["name", "email", "url", "message", "post"],
+        allowedFields: ["name", "email", "url", "message"],
         branch: "master",
-        commitMessage: "Add comment by {fields.name}",
-        filename: "entry{@timestamp}",
+        commitMessage: "Add comment to {options.origin} by {fields.name}",
+        filename: "comment-{@timestamp}",
         format: "json",
         generatedFields: {
           date: {
@@ -28,7 +28,7 @@ exports.handler = (event, context, callback) => {
           },
         },
         moderation: true,
-        path: "_data/comments",
+        path: "data/comments/{options.entryId}",
         requiredFields: ["name", "message"],
       },
     },
